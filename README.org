@@ -1,0 +1,39 @@
+#+TITLE: dwm
+
+
+
+** patches
++ alpha (for transparency)
++ attachaside (new clients appear in the stack rather than as the master)
++ cyclelayouts (cycles through the available layouts)
++ gridmode (adding a grid layout)
++ restartsig (allows dwm to be restarted with a keybinding)
++ rotatestack (moves a window through the stack, in either direction)
++ statuspadding (horizontal and vertical padding in the status bar are now configurable options)
++ uselessgap (adding gaps when more than one window)
+
+** dependencies
++ libxft
++ ttf-hack
++ ttf-joypixels
++ st
++ dmenu
++ tabbed
+
++ nerd-fonts-complete (optional)
++ https://aur.archlinux.org/packages/libxft-bgra/ (needed for colored fonts and emojis)
+
+
+
+
+
+#+begin_example
+[Desktop Entry]
+Encoding=UTF-8
+Name=Dwm
+Comment=Dynamic window manager
+Exec=dwm
+Icon=dwm
+Type=XSession
+#+end_example
+
