@@ -1400,9 +1400,12 @@ resizeclient(Client *c, int x, int y, int w, int h)
 	} else {
 		/* Remove border and gap if layout is monocle or only one client */
 		if (selmon->lt[selmon->sellt]->arrange == monocle || n == 1) {
-			gapoffset = gappx;
-			gapincr = 2 * gappx;
-			/*wc.border_width = 0;*/                                  /*HERE IS MODIFIED SOURCE CODE, LOOK INTO IPHONE PHOTO GALERY TO FIND THE ORIGINAL CODE IF ANYTHING BREAKS*/
+			/*gapoffset = gappx;
+			gapincr = 2 * gappx;*/
+			gapoffset = 0;
+			gapincr = -2 * borderpx; 			
+
+			wc.border_width = 0;                                  /*HERE IS MODIFIED SOURCE CODE, LOOK INTO IPHONE PHOTO GALERY TO FIND THE ORIGINAL CODE IF ANYTHING BREAKS*/
 		} else {
 			gapoffset = gappx;
 			gapincr = 2 * gappx;

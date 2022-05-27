@@ -28,7 +28,7 @@ static const char *fonts[]     = {"SauceCodePro Nerd Font Mono:weight=bold:size=
 static const char col_1[]  = "#282c34"; /* background color of bar */
 static const char col_2[]  = "#282c34"; /* border color unfocused windows */
 static const char col_3[]  = "#d7d7d7";
-static const char col_4[]  = "#c678dd"; /* border color focused windows and tags */
+static const char col_4[]  = "#5e81ac"; /* border color focused windows and tags */
 /* bar opacity
  * 0xff is no transparency.
  * 0xee adds wee bit of transparency.
