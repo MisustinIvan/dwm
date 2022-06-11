@@ -1403,7 +1403,7 @@ resizeclient(Client *c, int x, int y, int w, int h)
 			/*gapoffset = gappx;
 			gapincr = 2 * gappx;*/
 			gapoffset = 0;
-			gapincr = -2 * borderpx; 			
+			gapincr = -2 * borderpx;
 
 			wc.border_width = 0;                                  /*HERE IS MODIFIED SOURCE CODE, LOOK INTO IPHONE PHOTO GALERY TO FIND THE ORIGINAL CODE IF ANYTHING BREAKS*/
 		} else {
