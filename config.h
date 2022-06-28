@@ -109,6 +109,8 @@ static const char *browser[] = { "qutebrowser", NULL };
 /* run emacs */
 static const char *emacs[] = { "emacs", NULL };
 
+/*run vim*/
+static const char *vim[] = { "st", "-e", "vim", NULL };
 
 #include <X11/XF86keysym.h>
 /*DEFINING THE VOLUME AND BRIGHTNESS KEYS*/
@@ -123,9 +125,11 @@ static Key keys[] = {
 	/* modifier             chain key  key        function        argument */
 	{ MODKEY,               -1,        XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,               -1,        XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,		-1,        XK_a,      spawn, 	      {.v = browser } },
-	{ MODKEY, 		-1, 	   XK_s,      spawn,          {.v = emacs } },
-	
+	{ MODKEY,		            -1,        XK_a,      spawn, 	        {.v = browser } },
+	{ MODKEY, 		          -1, 	     XK_s,      spawn,          {.v = emacs } },
+  { MODKEY,               -1,        XK_d,      spawn,          {.v = vim } },
+
+
 	/*keyboard layout controls*/
 	{ MODKEY, -1, XK_F5, spawn, SHCMD("setxkbmap us") },
 	{ MODKEY, -1, XK_F6, spawn, SHCMD("setxkbmap cz") },
