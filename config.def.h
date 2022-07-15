@@ -102,7 +102,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]    = { "dmenu_run", "-g", "8", "-l", "1", "-fn", "Hack:pixelsize=16", "-p", "Run: ", NULL };
 
 /* run konsole cause i like it */
-static const char *termcmd[]     = { "st", NULL };
+static const char *termcmd[]     = { "alacritty", NULL };
 
 /* run qutebrowser*/
 static const char *browser[] = { "qutebrowser", NULL };
@@ -111,7 +111,7 @@ static const char *browser[] = { "qutebrowser", NULL };
 static const char *emacs[] = { "emacs", NULL };
 
 /*run vim*/
-static const char *vim[] = { "st", "-e", "vim", NULL };
+static const char *vim[] = { "st", "-e", "nvim", NULL };
 
 #include <X11/XF86keysym.h>
 /*DEFINING THE VOLUME AND BRIGHTNESS KEYS*/

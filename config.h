@@ -25,6 +25,7 @@ static const char *fonts[]     = {"SauceCodePro Nerd Font Mono:weight=bold:size=
                                   "Hack:size=8:antialias=true:autohint=true",
                                   "JoyPixels:size=10:antialias=true:autohint=true"
 						     	};
+
 static const char col_1[]  = "#282c34"; /* background color of bar */
 static const char col_2[]  = "#282c34"; /* border color unfocused windows */
 static const char col_3[]  = "#d7d7d7";
@@ -101,7 +102,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]    = { "dmenu_run", "-g", "8", "-l", "1", "-fn", "Hack:pixelsize=16", "-p", "Run: ", NULL };
 
 /* run konsole cause i like it */
-static const char *termcmd[]     = { "st", NULL };
+static const char *termcmd[]     = { "alacritty", NULL };
 
 /* run qutebrowser*/
 static const char *browser[] = { "qutebrowser", NULL };
@@ -110,7 +111,7 @@ static const char *browser[] = { "qutebrowser", NULL };
 static const char *emacs[] = { "emacs", NULL };
 
 /*run vim*/
-static const char *vim[] = { "st", "-e", "vim", NULL };
+static const char *vim[] = { "st", "-e", "nvim", NULL };
 
 #include <X11/XF86keysym.h>
 /*DEFINING THE VOLUME AND BRIGHTNESS KEYS*/
