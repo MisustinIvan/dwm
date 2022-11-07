@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 /* static const int user_bh            = 0; */      /* 0 means dwm will calculate bar size */
 /* static const int vertpad            = 12; */
 /* static const int sidepad            = 12; */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "monospace:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
