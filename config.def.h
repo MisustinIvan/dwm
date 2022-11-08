@@ -9,7 +9,7 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 /* static const int user_bh            = 0; */      /* 0 means dwm will calculate bar size */
 /* static const int vertpad            = 12; */
 /* static const int sidepad            = 12; */
-static const char *fonts[]          = { "monospace:size=13" };
+static const char *fonts[]          = { "monospace:size=13", "Hack Nerd Font Mono:size=13" };
 static const char dmenufont[]       = "monospace:size=10";
 
 static const char col_gray1[]       = "#222222";
@@ -41,6 +41,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+    { "processing-app-Base", NULL, NULL, 0, 1, -1 },
 };
 
 /* layout(s) */
@@ -77,7 +78,7 @@ static const char *volumeupcmd[] = { "pulsemixer", "--change-volume", "+5", NULL
 static const char *volumedowncmd[] = { "pulsemixer", "--change-volume", "-5", NULL };
 
 static const char *brightnessupcmd[] = { "brightnessctl", "set", "+10%", NULL };
-static const char *brightnessdowncmd[] = { "brightnessctl", "set", "-10%", NULL };
+static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10-%", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
