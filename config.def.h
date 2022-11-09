@@ -80,7 +80,7 @@ static const char *volumedowncmd[] = { "pulsemixer", "--change-volume", "-5", NU
 static const char *brightnessupcmd[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10-%", NULL };
 
-static const char *searchcmd[] = { "~/./.config/dwm/search.sh", NULL };
+static const char *searchcmd[] = { "/home/./yyvan/.config/dwm/search.sh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
