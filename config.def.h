@@ -80,6 +80,8 @@ static const char *volumedowncmd[] = { "pulsemixer", "--change-volume", "-5", NU
 static const char *brightnessupcmd[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10-%", NULL };
 
+static const char *searchcmd[] = { "~/./.config/dwm/search.sh", NULL };
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
@@ -90,6 +92,8 @@ static const Key keys[] = {
     /* change the brightness */
     { 0,                            XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd } },
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
+    /* search on the web */
+    { MODKEY|ShiftMask,             XK_space,               spawn, {.v = searchcmd } },
 	/* toggle the bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	/* focus between the windows */
