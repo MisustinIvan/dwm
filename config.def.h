@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "tabbed -c alacritty --embed", NULL };
 
 #include <X11/XF86keysym.h>
 
