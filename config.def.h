@@ -70,7 +70,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { "tabbed -c alacritty --embed", NULL };
+static const char *tabtermcmd[]  = { "tabbed", "-c", "alacritty", "--embed", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #include <X11/XF86keysym.h>
 
@@ -86,6 +87,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = tabtermcmd } },
 	/* change the volume */
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd } },
