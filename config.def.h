@@ -82,6 +82,7 @@ static const char *brightnessupcmd[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10-%", NULL };
 
 static const char *searchcmd[] = { "/home/./yyvan/.config/dwm/search.sh", NULL };
+/* static const char *searchcmd[] = { "surf", "$(dmenu", "-p", "'Website'", "<", "/dev/null)", NULL }; */
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
