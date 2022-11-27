@@ -31,8 +31,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-/* static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; */
-static const char *tags[] = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+/* static const char *tags[] = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι" }; */
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -53,6 +53,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
+	{ ">M>",      centeredfloatingmaster },
+	{ "|M|",      centeredmaster },
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
@@ -116,10 +118,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	/* change to tiling layout */
 	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[0]} },
-	/* change to floating layout */
+	/* change to centeredmaster layout */
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[1]} },
-	/* change to monocle layout */
+	/* change to centeredfloatingmaster layout */
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[2]} },
+    /* change to floating layout */
+	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[3]} },
+    /* change to monocle layout */
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[4]} },
 	/* toggle client back to tiling mode */
 	{ MODKEY,                       XK_v,  setlayout,      {0} },
 	/* toggle the client to floating mode */
@@ -147,8 +153,10 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	/* quit the wm */
+    /* restart the wm */
 	{ MODKEY|ControlMask|ShiftMask,             XK_q,      quit,           {0} },
+	/* quit the wm */
+	{ MODKEY|ControlMask|ShiftMask,             XK_r,      quit,           {1} },
 };
 
 /* button definitions */
