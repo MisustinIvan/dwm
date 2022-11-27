@@ -84,6 +84,7 @@ static const char *brightnessupcmd[] = { "brightnessctl", "set", "+10%", NULL };
 static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10-%", NULL };
 
 static const char *searchcmd[] = { "/home/./yyvan/.config/dwm/search.sh", NULL };
+static const char *powermenucmd[] = { "/home/./yyvan/.config/dwm/powermenu.sh", NULL };
 /* static const char *searchcmd[] = { "surf", "$(dmenu", "-p", "'Website'", "<", "/dev/null)", NULL }; */
 
 static const Key keys[] = {
@@ -99,6 +100,8 @@ static const Key keys[] = {
     { 0,                            XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd } },
     /* search on the web */
     { MODKEY|ShiftMask,             XK_space,               spawn, {.v = searchcmd } },
+    /* open the powermenu */
+    { MODKEY|ShiftMask,             XK_p,                   spawn, {.v = powermenucmd } },
 	/* toggle the bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	/* focus between the windows */
