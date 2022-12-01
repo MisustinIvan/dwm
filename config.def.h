@@ -41,6 +41,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "CoreShot",     NULL,       NULL,       0,            1,           -1 },
 /*    { "processing-app-Base", NULL, NULL, 0, 1, -1 }, */
 };
 
@@ -85,6 +86,7 @@ static const char *brightnessdowncmd[] = { "brightnessctl", "set", "10-%", NULL 
 
 static const char *searchcmd[] = { "/home/./yyvan/.config/dwm/search.sh", NULL };
 static const char *powermenucmd[] = { "/home/./yyvan/.config/dwm/powermenu.sh", NULL };
+static const char *runwithoutputcmd[] = { "/home/./yyvan/.config/dwm/run_with_output.sh", NULL };
 /* static const char *searchcmd[] = { "surf", "$(dmenu", "-p", "'Website'", "<", "/dev/null)", NULL }; */
 
 static const Key keys[] = {
@@ -102,6 +104,8 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,             XK_space,               spawn, {.v = searchcmd } },
     /* open the powermenu */
     { MODKEY|ShiftMask,             XK_p,                   spawn, {.v = powermenucmd } },
+    /* open the run menu which gives an output into a notification */
+    { MODKEY|ShiftMask,             XK_o,                   spawn, {.v = runwithoutputcmd } },
 	/* toggle the bar */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	/* focus between the windows */
