@@ -3,7 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 12;
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 0;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 /* static const int user_bh            = 0; */      /* 0 means dwm will calculate bar size */
@@ -16,7 +16,6 @@ static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-/*static const char col_cyan[]        = "#005577";*/
 
 static const char col_cyan[]        = "#344e5b";
 static const char col_green[]       = "#6ac769";
@@ -24,10 +23,24 @@ static const char col_yellow[]      = "#e5c63f";
 static const char col_white[]       = "#f8ecaa";
 static const char col_red[]         = "#e3433f";
 
+static const char col_rp_bg[]         = "#232136";
+static const char col_rp_fg[]         = "#e0def4";
+static const char col_rp_hl[]         = "#c4a7e7";
+
+/*static const char col_retro_fg[]        = "
+static const char col_retro_bg[]        = "
+static const char col_retro_hl[]        = " */
+
+/*static const char *colors[][3]      = {*/
+	/*               fg         bg         border   */
+/*	[SchemeNorm] = { col_rp_fg, col_rp_bg, col_rp_bg },
+	[SchemeSel]  = { col_rp_bg, col_rp_hl,  col_rp_hl},
+};*/
+
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_cyan, col_cyan },
-	[SchemeSel]  = { col_cyan, col_red,  col_red},
+	[SchemeNorm] = { col_rp_fg, col_rp_bg, col_rp_bg },
+	[SchemeSel]  = { col_rp_bg, col_rp_hl,  col_rp_hl},
 };
 
 /* tagging */
@@ -42,6 +55,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "CoreShot",     NULL,       NULL,       0,            1,           -1 },
+	{ "Media Viewer",     NULL,       NULL,       0,            1,           -1 },
 /*    { "processing-app-Base", NULL, NULL, 0, 1, -1 }, */
 };
 
