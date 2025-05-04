@@ -20,7 +20,7 @@
  *
  * To understand everything else, start reading main().
  */
-#include <errno.h>
+#include <X11/X.h>
 #include <locale.h>
 #include <signal.h>
 #include <stdarg.h>
@@ -114,7 +114,7 @@ typedef struct {
 typedef struct Pertag Pertag;
 
 struct Monitor {
-	char ltsymbol[16];
+	char ltsymbol[32];
 	float mfact;
 	int nmaster;
 	int num;
@@ -278,6 +278,8 @@ static Display *dpy;
 static Drw *drw;
 static Monitor *mons, *selmon;
 static Window root, wmcheckwin;
+static pid_t autostart_pid;
+
 
 /* configuration, allows nested code to access above variables */
 #include "config.h"
@@ -495,6 +497,10 @@ cleanup(void)
 	Layout foo = { "", NULL };
 	Monitor *m;
 	size_t i;
+
+    if (autostart_pid > 0) {
+        kill(autostart_pid, SIGKILL);
+    }
 
 	view(&a);
 	selmon->lt[selmon->sellt] = &foo;
@@ -1210,11 +1216,11 @@ movemouse(const Arg *arg)
 			ny = ocy + (ev.xmotion.y - y);
 			if (abs(selmon->wx - nx) < snap)
 				nx = selmon->wx;
-			else if (abs((selmon->wx + selmon->ww) - (nx + WIDTH(c))) < snap)
+			else if (((selmon->wx + selmon->ww) - (nx + WIDTH(c))) < snap)
 				nx = selmon->wx + selmon->ww - WIDTH(c);
 			if (abs(selmon->wy - ny) < snap)
 				ny = selmon->wy;
-			else if (abs((selmon->wy + selmon->wh) - (ny + HEIGHT(c))) < snap)
+			else if (((selmon->wy + selmon->wh) - (ny + HEIGHT(c))) < snap)
 				ny = selmon->wy + selmon->wh - HEIGHT(c);
 			if (!c->isfloating && selmon->lt[selmon->sellt]->arrange
 			&& (abs(nx - c->x) > snap || abs(ny - c->y) > snap))
@@ -1449,7 +1455,13 @@ run(void)
 
 void
 runAutostart(void) {
-    system("~/./.config/dwm/autostart.sh");
+    autostart_pid = fork();
+    if (autostart_pid < 0) {
+        perror("failed to run autostart\n");
+    }
+    if (autostart_pid == 0) {
+        execl("/bin/sh", "sh", "-c", "~/.config/dwm/autostart.sh", (char*)NULL);
+    }
 }
 
 void
@@ -2292,7 +2304,12 @@ main(int argc, char *argv[])
 	scan();
     runAutostart();
 	run();
-	if(restart) execvp(argv[0], argv);
+	if(restart) {
+        if (autostart_pid > 0) {
+            kill(autostart_pid, SIGKILL);
+        }
+        execvp(argv[0], argv);
+    }
 	cleanup();
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
