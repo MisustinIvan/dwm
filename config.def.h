@@ -21,10 +21,15 @@ static const char *fonts[] = { "Iosevka Nerd Font Mono:size=13", "monospace:size
 #define col_white "#f8ecaa"
 #define col_red "#e3433f"
 
+#define col_1 "#cf8592"
+#define col_2 "#165a5d"
+#define col_3 "#eab8bb"
+#define col_4 "#298657"
+
 static const char *colors[][3] = {
 //                   primary    secondary    border
-	[SchemeNorm] = { col_white, col_cyan, col_cyan },
-	[SchemeSel]  = { col_cyan, col_white,  col_red},
+	[SchemeNorm] = { col_3, col_2, col_4 },
+	[SchemeSel]  = { col_2, col_1,  col_1},
 };
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
