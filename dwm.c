@@ -186,6 +186,8 @@ static void mappingnotify(XEvent *e);
 static void maprequest(XEvent *e);
 static void monocle(Monitor *m);
 static void motionnotify(XEvent *e);
+static void movex(const Arg *arg);
+static void movey(const Arg *arg);
 static void movemouse(const Arg *arg);
 static Client *nexttiled(Client *c);
 static void pop(Client *c);
@@ -1176,6 +1178,30 @@ motionnotify(XEvent *e)
 		focus(NULL);
 	}
 	mon = m;
+}
+
+void
+movex(const Arg *arg)
+{
+	Client *c = selmon->sel;
+
+	if (!c) return;
+	if (c->isfullscreen) return;
+    if (!c->isfloating) return;
+
+    resize(c, c->x+arg->i, c->y, c->w, c->h, 1);
+}
+
+void
+movey(const Arg *arg)
+{
+	Client *c = selmon->sel;
+
+	if (!c) return;
+	if (c->isfullscreen) return;
+    if (!c->isfloating) return;
+
+    resize(c, c->x, c->y+arg->i, c->w, c->h, 1);
 }
 
 void

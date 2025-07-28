@@ -32,7 +32,8 @@ static const char *colors[][3] = {
 	[SchemeSel]  = { col_2, col_1,  col_1},
 };
 
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+//static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "一", "二", "三", "四", "五", "六", "七", "八", "九" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -71,6 +72,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = {"dmenu_run", NULL};
 static const char *termcmd[] = {TERMINAL, NULL};
+static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
 static const char *mr_crabs_cmd[] = {TERMINAL, "-e", "ssh", "mr-crabs", NULL};
 
 static const char *volumeupcmd[] = {"pulsemixer", "--change-volume", "+5", NULL};
@@ -85,11 +87,13 @@ static const Key keys[] = {
 //   running programs
 	{MODKEY, XK_space, spawn, {.v = dmenucmd}},
 	{MODKEY, XK_Return, spawn, {.v = termcmd }},
+	{MODKEY|ShiftMask, XK_s, spawn, {.v = screenshotcmd }},
     {MODKEY, XK_m, spawn, {.v = mr_crabs_cmd}},
 // media playback
 	{0, XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd}},
 	{0, XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd}},
     {0, XF86XK_AudioPlay, spawn, {.v = audiotogglecmd}},
+    {0, 0x1008ff14, spawn, {.v = audiotogglecmd}},
 // change the brightness
     {0, XF86XK_MonBrightnessUp, spawn, {.v = brightnessupcmd}},
     {0, XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd}},
@@ -106,6 +110,11 @@ static const Key keys[] = {
 	{MODKEY, XK_semicolon, setmfact, {.f = +0.05}},
 // set window as master
 	{MODKEY, XK_f, zoom, {0}},
+// move floating windows
+	{MODKEY|ShiftMask, XK_j, movex, {.i = -25}},
+	{MODKEY|ShiftMask, XK_semicolon, movex, {.i = 25}},
+	{MODKEY|ShiftMask, XK_k, movey, {.i = 25}},
+	{MODKEY|ShiftMask, XK_l, movey, {.i = -25}},
 // cycle between the two last used tags
 	{MODKEY, XK_Tab, view, {0}},
 // kill the focused client
