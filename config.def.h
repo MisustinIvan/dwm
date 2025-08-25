@@ -72,6 +72,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = {"dmenu_run", NULL};
 static const char *termcmd[] = {TERMINAL, NULL};
+static const char *browsercmd[] = {"librewolf", NULL};
 static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
 static const char *mr_crabs_cmd[] = {TERMINAL, "-e", "ssh", "mr-crabs", NULL};
 
@@ -87,6 +88,7 @@ static const Key keys[] = {
 //   running programs
 	{MODKEY, XK_space, spawn, {.v = dmenucmd}},
 	{MODKEY, XK_Return, spawn, {.v = termcmd }},
+	{MODKEY|ShiftMask, XK_b, spawn, {.v = browsercmd }},
 	{MODKEY|ShiftMask, XK_s, spawn, {.v = screenshotcmd }},
     {MODKEY, XK_m, spawn, {.v = mr_crabs_cmd}},
 // media playback
