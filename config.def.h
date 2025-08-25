@@ -2,12 +2,13 @@
 #include <stdbool.h>
 #include <X11/XF86keysym.h>
 
-
 static const unsigned int borderpx = 2;
 static const unsigned int gappx = 12;
 static const unsigned int snap = 0;
 static const int showbar = true;
 static const int topbar = true;
+static const int barpadx = 12;
+static const int barpady = 12;
 static const char *fonts[] = { "Iosevka Nerd Font Mono:size=13", "monospace:size=13" }; // main and fallback font
 
 // colorscheme
