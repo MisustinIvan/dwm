@@ -102,6 +102,7 @@ static const Key keys[] = {
     {0, XF86XK_MonBrightnessDown, spawn, {.v = brightnessdowncmd}},
 // toggle bar visibility
 	{MODKEY, XK_b, togglebar, {0}},
+	{MODKEY, XK_p, togglebarpadding, {0}},
 // change window focus
 	{MODKEY, XK_l, focusstack, {.i = +1 }},
 	{MODKEY, XK_k, focusstack, {.i = -1 }},

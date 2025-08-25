@@ -245,6 +245,7 @@ static int xerrorstart(Display *dpy, XErrorEvent *ee);
 static void zoom(const Arg *arg);
 static void centeredmaster(Monitor *m);
 static void centeredfloatingmaster(Monitor *m);
+static void togglebarpadding(const Arg *arg);
 
 /* variables */
 static const char broken[] = "broken";
@@ -804,6 +805,29 @@ drawbars(void)
 
 	for (m = mons; m; m = m->next)
 		drawbar(m);
+}
+
+void
+togglebarpadding(const Arg *arg)
+{
+    if (hp == 0 || vp == 0) {
+        hp = barpadx;
+        vp = (topbar == 1) ? barpady : - barpady;
+    } else {
+        hp = 0;
+        vp = 0;
+    }
+
+	Monitor *m;
+
+	updatebars();
+	updatestatus();
+
+	for (m = mons; m; m = m->next) {
+        updatebarpos(m);
+        XMoveResizeWindow(dpy, m->barwin, m->wx + hp, m->by + vp, m->ww - 2 * hp, bh);
+        arrange(m);
+    }
 }
 
 void
@@ -1990,8 +2014,8 @@ updatebarpos(Monitor *m)
 	m->wy = m->my;
 	m->wh = m->mh;
 	if (m->showbar) {
-		m->wh = m->wh - barpady - bh;
-		m->by = m->topbar ? m->wy : m->wy + m->wh + barpady;
+		m->wh = m->wh - hp - bh;
+		m->by = m->topbar ? m->wy : m->wy + m->wh + hp;
 		m->wy = m->topbar ? m->wy + bh + vp : m->wy;
 	} else
 		m->by = -bh - vp;
