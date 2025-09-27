@@ -46,10 +46,12 @@ static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 // "九"};
 
 static const Rule rules[] = {
-    /* class      instance    title       tags mask     isfloating   monitor */
-    {"Gimp", NULL, NULL, 0, 1, -1},
-    {"CoreShot", NULL, NULL, 0, 1, -1},
-    {"Media Viewer", NULL, NULL, 0, 1, -1},
+    /* class      instance    title       tags mask    iscentered     isfloating
+       monitor */
+    {"Gimp", NULL, NULL, 0, 1, 1, -1},
+    {"CoreShot", NULL, NULL, 0, 1, 1, -1},
+    {"Media Viewer", NULL, NULL, 0, 1, 1, -1},
+    {"Alacritty", NULL, "command_menu", 0, 1, 1, -1},
 };
 // factor of master area size
 static const float mfact = 0.5;
@@ -85,6 +87,7 @@ static const char *termcmd[] = {TERMINAL, NULL};
 static const char *browsercmd[] = {"librewolf", NULL};
 static const char *screenshotcmd[] = {"flameshot", "gui", NULL};
 static const char *mr_crabs_cmd[] = {TERMINAL, "-e", "ssh", "mr-crabs", NULL};
+static const char *menucmd[] = {"/home/ivanm/.config/dwm/menu.sh", NULL};
 
 static const char *volumeupcmd[] = {"pulsemixer", "--change-volume", "+5",
                                     NULL};
@@ -103,6 +106,7 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_b, spawn, {.v = browsercmd}},
     {MODKEY | ShiftMask, XK_s, spawn, {.v = screenshotcmd}},
     {MODKEY, XK_m, spawn, {.v = mr_crabs_cmd}},
+    {MODKEY, XK_g, spawn, {.v = menucmd}},
     // media playback
     {0, XF86XK_AudioLowerVolume, spawn, {.v = volumedowncmd}},
     {0, XF86XK_AudioRaiseVolume, spawn, {.v = volumeupcmd}},
